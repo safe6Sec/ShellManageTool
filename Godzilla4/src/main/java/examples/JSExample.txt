@@ -1,0 +1,78 @@
+function foobar() {
+   alert("Wow");
+}
+
+/**
+ * Another function.
+ *
+ * @param name Your name.
+ */
+function another(name) {
+   alert("Hello there, " + name + "!");
+}
+
+var abc;
+var aaa;
+
+function what(foo) {
+   var temp = 44;
+}
+
+var goo = 'Hello world';
+
+// Simple Java-style OO class design
+function Klass() {
+   this.name = 'Fred';
+}
+Klass.prototype.getName = function() {
+   return this.name;
+};
+
+// Another simple Java-style OO class design
+var Klass2 = function(a, b, c) {
+   this.name = 'Fred';
+}
+Klass2.prototype.getName = function() {
+   return this.name;
+};
+Klass2.prototype.CONST = 42;
+
+// Yet another simple Java-style OO class design
+var Klass3 = function() {
+   this.name = 'Fred';
+}
+Klass3.prototype = {
+   getName: function(arg1, arg2) {
+      return this.name;
+   },
+   getValue: function() {
+      return 0;
+   },
+   'string-value': 'Something',
+   VALUE: 5
+};
+
+// Defining type hierarchies with Object.create()
+var Klass4 = function() {
+	this.apples = true;
+};
+Klass4.prototype = Object.create(a, {
+   name: {
+      value: 'Fred',
+      writable: true,
+      enumerable: true
+   },
+   'string-value': {
+      value: 42,
+      writable: false
+   },
+   someFunc: {
+      value: function(a, b, c) {
+         var temp = a + b + c;
+         return temp;
+      },
+      writable: true
+   }
+});
+
+foobar.frozen = Object.freeze({ a: 'a', b: 'b' });

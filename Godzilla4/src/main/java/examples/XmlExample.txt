@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE note SYSTEM "books.dtd">
+<books>
+   <book name="Getting Rich Quickly" published="1998">
+      <author>John Smith</author>
+      <publisher>Self-Help Co., Inc.</publisher>
+      <sample><![CDATA[You'll never have to work another day in your life!]]></sample>
+   </book>
+   <book name="Finding Inner Peace" published="2004">
+      <author>Susie Peaceful</author>
+      <publisher>Hippie Publications</publisher>
+      <sample><![CDATA[Deep breathing exercises can really reduce stress.]]></sample>
+   </book>
+</books>

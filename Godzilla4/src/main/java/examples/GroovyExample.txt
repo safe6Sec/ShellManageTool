@@ -1,0 +1,2 @@
+def foo = "very much so"
+println "I'd like some pie, ${foo}"

@@ -1,0 +1,57 @@
+public class ExampleCode {
+
+   private String strField;
+   protected int aaa;
+   protected int abb;
+   public float foo;
+
+   public ExampleCode(int value) {
+      this.value = value;
+   }
+
+   public String getX() {
+      String str = "Hello world!";
+      String another = "one two three";
+      if (another.equals(str)) {
+         System.out.println("Match found");
+      }
+      return another;
+   }
+
+   public void setValues(String val1, int val2) {
+      strField = val1;
+      aaa = abb = val2;
+      System.out.println(getX());
+      System.out.println(foo()); // Ctrl+click shouldn't work for foo!
+   }
+
+   /** Ctrl+click my stuff! */
+   private class Inner1 {
+   
+      private int aaa;
+      private double d;
+      private String strField;
+      
+      public void doSomething(double newVal) {
+         d = newVal;
+         aaa = abb = clickable;
+         strField = getX(); // getX() clickable
+      }
+      
+   }
+   
+   /** Ctrl+click my stuff also! */
+   private static class Inner2 {
+   
+      private double d;
+      private String strField;
+      
+      public void doSomething(double newVal) {
+         d = newVal;
+         aaa = abb = notClickable;
+         strField = getX(); // getX() not clickable
+      }
+      
+   }
+   
+}   

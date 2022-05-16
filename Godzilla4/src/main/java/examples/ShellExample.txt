@@ -1,0 +1,5 @@
+#!/bin/ksh
+
+echo This is a shell script
+
+cat foo.txt

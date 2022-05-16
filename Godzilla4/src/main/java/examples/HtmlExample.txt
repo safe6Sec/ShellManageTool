@@ -1,0 +1,23 @@
+<html>
+
+   <body>
+
+      <p>Hello world!</p>
+
+      <!-- This is a table. -->
+      <table>
+         <th>
+            <td>one</td>
+            <td>two</td>
+            <td>three</td>
+         </th>
+         <tr>
+            <td>value 1</td>
+            <td>value 2</td>
+            <td>value 3</td>
+         </tr>
+      </table>
+
+   </body>
+
+</html>

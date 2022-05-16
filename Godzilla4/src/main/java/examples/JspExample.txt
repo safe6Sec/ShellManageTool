@@ -1,0 +1,10 @@
+<%@ page errorPage="myerror.jsp" %>
+<%@ page import="com.foo.bar" %>
+ 
+<html>
+<head>
+<%! int serverInstanceVariable = 1;%>
+
+<% int localStackBasedVariable = 1; %>
+<table>
+<tr><td><%= toStringOrBlank( "expanded inline data " + 1 ) %></td></tr>

