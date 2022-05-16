@@ -124,6 +124,33 @@
             <!-- <scope>test</scope> -->
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.3.20</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+            <version>5.3.20</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.fife.ui/rsyntaxtextarea -->
+        <dependency>
+            <groupId>org.fife.ui</groupId>
+            <artifactId>rsyntaxtextarea</artifactId>
+            <version>2.0.4.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fifesoft</groupId>
+            <artifactId>languagesupport</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <!-- Thanks for using https://jar-download.com -->
+
+
+
 
 
 

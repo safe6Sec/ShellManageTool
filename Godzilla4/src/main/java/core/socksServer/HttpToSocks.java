@@ -1,7 +1,6 @@
 package core.socksServer;
-
-import com.httpProxy.server.request.HttpRequest;
-import com.httpProxy.server.response.HttpResponse;
+import core.httpProxy.server.request.HttpRequest;
+import core.httpProxy.server.response.HttpResponse;
 import core.EasyI18N;
 import java.net.Socket;
 import java.nio.ByteBuffer;

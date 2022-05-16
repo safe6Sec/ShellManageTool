@@ -1,8 +1,8 @@
 package shells.plugins.cshap;
 
-import com.httpProxy.server.request.HttpRequest;
-import com.httpProxy.server.response.HttpResponse;
+
 import core.annotation.PluginAnnotation;
+import core.httpProxy.server.request.HttpRequest;
 import core.imp.Plugin;
 import core.shell.ShellEntity;
 import core.socksServer.HttpRequestHandle;
@@ -10,6 +10,7 @@ import core.ui.component.dialog.GOptionPane;
 import javax.swing.JPanel;
 import shells.plugins.generic.HttpProxy;
 import shells.plugins.generic.SocksProxy;
+import util.http.HttpResponse;
 
 @PluginAnnotation(
    payloadName = "CShapDynamicPayload",

@@ -49,36 +49,36 @@ public class C2ProfileCheck {
 
       ctx.c2Profile.request.requestHeaders.forEach((k, v) -> {
          if ("@@@CHANNEL".equalsIgnoreCase(v)) {
-            RequestChannelType _r = new RequestChannelType(RequestChannelEnum.REQUEST_HEADER, k);
+            RequestChannelType _rr = new RequestChannelType(RequestChannelEnum.REQUEST_HEADER, k);
             if (ctx.requestChannelType != null) {
-               throw new UnsupportedOperationException("信道重复定义 已有%s 重复%s", new Object[]{ctx.requestChannelType, _r});
+               throw new UnsupportedOperationException("信道重复定义 已有%s 重复%s", new Object[]{ctx.requestChannelType, _rr});
             }
 
-            ctx.requestChannelType = _r;
+            ctx.requestChannelType = _rr;
             flag.set(true);
          }
 
       });
       ctx.c2Profile.request.requestCookies.forEach((k, v) -> {
          if ("@@@CHANNEL".equalsIgnoreCase(v)) {
-            RequestChannelType _r = new RequestChannelType(RequestChannelEnum.REQUEST_COOKIE, k);
+            RequestChannelType _rrr = new RequestChannelType(RequestChannelEnum.REQUEST_COOKIE, k);
             if (ctx.requestChannelType != null) {
-               throw new UnsupportedOperationException("信道重复定义 已有%s 重复%s", new Object[]{ctx.requestChannelType, _r});
+               throw new UnsupportedOperationException("信道重复定义 已有%s 重复%s", new Object[]{ctx.requestChannelType, _rrr});
             }
 
-            ctx.requestChannelType = _r;
+            ctx.requestChannelType = _rrr;
             flag.set(true);
          }
 
       });
       ctx.c2Profile.request.requestFormParameters.forEach((k, v) -> {
          if ("@@@CHANNEL".equalsIgnoreCase(v)) {
-            RequestChannelType _r = new RequestChannelType(RequestChannelEnum.REQUEST_POST_FORM_PARAMETER, k);
+            RequestChannelType _rrrr = new RequestChannelType(RequestChannelEnum.REQUEST_POST_FORM_PARAMETER, k);
             if (ctx.requestChannelType != null) {
-               throw new UnsupportedOperationException("信道重复定义 已有%s 重复%s", new Object[]{ctx.requestChannelType, _r});
+               throw new UnsupportedOperationException("信道重复定义 已有%s 重复%s", new Object[]{ctx.requestChannelType, _rrrr});
             }
 
-            ctx.requestChannelType = _r;
+            ctx.requestChannelType = _rrrr;
             flag.set(true);
          }
 

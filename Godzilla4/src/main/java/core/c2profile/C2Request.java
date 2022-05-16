@@ -1,8 +1,9 @@
 package core.c2profile;
 
+import core.annotation.YamlClass;
+import core.annotation.YamlComment;
+
 import java.util.LinkedHashMap;
-import org.yaml.snakeyaml.annotation.YamlClass;
-import org.yaml.snakeyaml.annotation.YamlComment;
 
 @YamlClass
 public class C2Request {

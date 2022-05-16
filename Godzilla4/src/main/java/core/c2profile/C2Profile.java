@@ -1,5 +1,7 @@
 package core.c2profile;
 
+import core.annotation.YamlClass;
+import core.annotation.YamlComment;
 import core.c2profile.config.BasicConfig;
 import core.c2profile.config.CoreConfig;
 import core.c2profile.location.ChannelLocationEnum;
@@ -9,8 +11,6 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
-import org.yaml.snakeyaml.annotation.YamlClass;
-import org.yaml.snakeyaml.annotation.YamlComment;
 import org.yaml.snakeyaml.introspector.BeanAccess;
 
 @YamlClass

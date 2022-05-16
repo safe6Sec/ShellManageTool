@@ -1,7 +1,7 @@
 package core.c2profile.config;
 
+import core.annotation.YamlComment;
 import core.c2profile.CommandMode;
-import org.yaml.snakeyaml.annotation.YamlComment;
 
 public class BasicConfig {
    @YamlComment(

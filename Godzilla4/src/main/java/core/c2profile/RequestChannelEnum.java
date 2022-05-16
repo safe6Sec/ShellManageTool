@@ -1,7 +1,7 @@
 package core.c2profile;
 
 import core.EasyI18N;
-import org.yaml.snakeyaml.annotation.YamlClass;
+import core.annotation.YamlClass;
 
 @YamlClass
 public enum RequestChannelEnum {

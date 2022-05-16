@@ -1,6 +1,7 @@
 package core.c2profile.config;
 
-import org.yaml.snakeyaml.annotation.YamlComment;
+
+import core.annotation.YamlComment;
 
 public class CoreConfig {
    @YamlComment(

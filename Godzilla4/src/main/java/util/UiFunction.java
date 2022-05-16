@@ -134,8 +134,9 @@ public class UiFunction {
       }
 
       textArea.setSyntaxEditingStyle(style);
-      textArea.registerReplaceDialog();
-      textArea.registerGoToDialog();
+      // TODO: 2022/5/16  
+      //textArea.registerReplaceDialog();
+      //textArea.registerGoToDialog();
       return style;
    }
 

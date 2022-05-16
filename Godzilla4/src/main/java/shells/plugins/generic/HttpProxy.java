@@ -1,14 +1,15 @@
 package shells.plugins.generic;
 
-import com.httpProxy.server.CertPool;
-import com.httpProxy.server.core.HttpProxyHandle;
-import com.httpProxy.server.core.HttpProxyServer;
-import com.httpProxy.server.request.HttpRequest;
-import com.httpProxy.server.response.HttpResponse;
-import com.httpProxy.server.response.HttpResponseHeader;
-import com.httpProxy.server.response.HttpResponseStatus;
+
 import core.ApplicationContext;
 import core.Encoding;
+import core.httpProxy.server.CertPool;
+import core.httpProxy.server.core.HttpProxyHandle;
+import core.httpProxy.server.core.HttpProxyServer;
+import core.httpProxy.server.request.HttpRequest;
+import core.httpProxy.server.response.HttpResponse;
+import core.httpProxy.server.response.HttpResponseHeader;
+import core.httpProxy.server.response.HttpResponseStatus;
 import core.imp.Payload;
 import core.imp.Plugin;
 import core.shell.ShellEntity;
@@ -138,7 +139,7 @@ public abstract class HttpProxy implements Plugin, HttpProxyHandle {
          } catch (Exception var10) {
          }
 
-         httpResponse = new HttpResponse(HttpResponseStatus.INTERNAL_SERVER_ERROR, (HttpResponseHeader)null, byteArrayOutputStream.toByteArray());
+         httpResponse = new HttpResponse(HttpResponseStatus.INTERNAL_SERVER_ERROR, null, byteArrayOutputStream.toByteArray());
 
          try {
             byteArrayOutputStream.close();

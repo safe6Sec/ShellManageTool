@@ -1,8 +1,9 @@
 package util.http;
 
-import com.httpProxy.server.response.HttpResponseHeader;
-import com.httpProxy.server.response.HttpResponseStatus;
+
 import core.ApplicationContext;
+import core.httpProxy.server.response.HttpResponseHeader;
+import core.httpProxy.server.response.HttpResponseStatus;
 import core.shell.ShellEntity;
 import core.ui.component.dialog.HttpProgressBar;
 import java.io.ByteArrayOutputStream;
@@ -16,10 +17,14 @@ import java.util.Map;
 
 public class HttpResponse {
    private byte[] result;
-   private final ShellEntity shellEntity;
+   private ShellEntity shellEntity;
    private Map<String, List<String>> headerMap;
    private String message;
    private int responseCode;
+
+   public HttpResponse(HttpResponseStatus httpResponseStatus) {
+      this.responseCode=httpResponseStatus.code();
+   }
 
    public byte[] getResult() {
       return this.result;
@@ -71,11 +76,11 @@ public class HttpResponse {
    }
 
    protected void ReadAllData(InputStream inputStream) throws IOException {
-      int maxLen = false;
+      int maxLen = 0;
 
       try {
          if (this.headerMap.get("Content-Length") != null && ((List)this.headerMap.get("Content-Length")).size() > 0) {
-            int maxLen = Integer.parseInt((String)((List)this.headerMap.get("Content-Length")).get(0));
+            maxLen = Integer.parseInt((String)((List)this.headerMap.get("Content-Length")).get(0));
             this.result = this.ReadKnownNumData(inputStream, maxLen);
          } else {
             this.result = this.ReadUnknownNumData(inputStream);
@@ -92,11 +97,10 @@ public class HttpResponse {
          return num == 0 ? this.ReadUnknownNumData(inputStream) : null;
       } else {
          byte[] temp = new byte[5120];
-         int readOneNum = false;
+         int readOneNum = 0;
          int readNum = 0;
          ByteArrayOutputStream bos = new ByteArrayOutputStream();
          Boolean isShowBar = (Boolean)ApplicationContext.isShowHttpProgressBar.get();
-         int readOneNum;
          if (isShowBar != null && isShowBar) {
             HttpProgressBar httpProgressBar = new HttpProgressBar("download threadId:" + Thread.currentThread().getId(), num);
 
@@ -117,10 +121,9 @@ public class HttpResponse {
 
    protected byte[] ReadUnknownNumData(InputStream inputStream) throws IOException {
       byte[] temp = new byte[5120];
-      int readOneNum = false;
+      int readOneNum = 0;
       ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
-      int readOneNum;
       while((readOneNum = inputStream.read(temp)) != -1) {
          bos.write(temp, 0, readOneNum);
       }
@@ -128,8 +131,8 @@ public class HttpResponse {
       return bos.toByteArray();
    }
 
-   public com.httpProxy.server.response.HttpResponse parseHttpResponse() {
-      com.httpProxy.server.response.HttpResponse httpResponse = new com.httpProxy.server.response.HttpResponse(new HttpResponseStatus(this.responseCode));
+   public HttpResponse parseHttpResponse() throws IOException {
+      HttpResponse httpResponse = new HttpResponse(new HttpResponseStatus(this.responseCode));
       httpResponse.setResponseData(this.result);
       HttpResponseHeader responseHeader = httpResponse.getHttpResponseHeader();
       Iterator<String> headerKeys = this.headerMap.keySet().iterator();
@@ -145,5 +148,16 @@ public class HttpResponse {
       }
 
       return httpResponse;
+   }
+
+   private HttpResponseHeader getHttpResponseHeader() {
+      HttpResponseHeader httpResponseHeader = new HttpResponseHeader();
+      Map<String, List<String>> headerMap1 = this.getHeaderMap();
+      // TODO: 2022/5/16
+      return null;
+   }
+
+   private void setResponseData(byte[] result) {
+      this.result = result;
    }
 }
